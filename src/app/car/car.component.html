@@ -1,0 +1,20 @@
+<p>car works!</p>
+
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Mark</th>
+      <th>Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let car of cars">
+      <td><span>{{car.id}}</span></td>
+      <td><span>{{car.mark}}</span></td>
+      <td><span>{{car.color}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
