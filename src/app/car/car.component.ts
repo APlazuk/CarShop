@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Car, CarControllerService} from "../api/car/v1";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-car',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './car.component.html',
   styleUrl: './car.component.css'
 })
@@ -19,6 +20,7 @@ export class CarComponent implements OnInit{
   ngOnInit(): void {
     this.getAllCars();
   }
+
 
   private getAllCars(): void{
     this.carControllerService.getAllCars()
