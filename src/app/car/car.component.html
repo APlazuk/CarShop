@@ -1,5 +1,5 @@
-<html>
-<body>
+
+
 <div class="container">
   <div class="text-center mt-5">
     <h1>All available cars</h1>
@@ -10,16 +10,17 @@
       <th>ID</th>
       <th>Mark</th>
       <th>Color</th>
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let car of cars">
-      <td><span>{{car.id}}</span></td>
-      <td><span>{{car.mark}}</span></td>
-      <td><span>{{car.color}}</span></td>
+      <td class="col-sm-1"><span>{{car.id}}</span></td>
+      <td class="col-sm-3"><span>{{car.mark}}</span></td>
+      <td class="col-sm-3"><span>{{car.color}}</span></td>
+      <app-details-car [car] = "car"></app-details-car>
     </tr>
     </tbody>
   </table>
 </div>
-</body>
-</html>
+

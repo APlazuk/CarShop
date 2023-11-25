@@ -1,16 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {Car, CarControllerService} from "../api/car/v1";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {DetailsCarComponent} from "./details-car/details-car.component";
 
 @Component({
-  selector: 'app-car',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './car.component.html',
-  styleUrl: './car.component.css'
+    selector: 'app-car',
+    standalone: true,
+    imports: [CommonModule, RouterOutlet, DetailsCarComponent, RouterLink, RouterLinkActive],
+    templateUrl: './car.component.html',
+    styleUrl: './car.component.css'
 })
-export class CarComponent implements OnInit{
+export class CarComponent implements OnInit {
 
   cars: Array<Car> | undefined =[]
 
@@ -20,7 +21,6 @@ export class CarComponent implements OnInit{
   ngOnInit(): void {
     this.getAllCars();
   }
-
 
   private getAllCars(): void{
     this.carControllerService.getAllCars()
