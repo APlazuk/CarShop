@@ -27,6 +27,10 @@ export class AddCarComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    get carFormControl() {
+        return this.carFrom.controls;
+    }
+
     createCar(): Car {
         this.car = Object.assign(this.carFrom.value);
         return this.car;
