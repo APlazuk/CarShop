@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {Car, CarControllerService} from "../../api/car/v1";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-add-car',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-car.component.html',
-  styleUrl: './add-car.component.css'
+    selector: 'app-add-car',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './add-car.component.html',
+    styleUrl: './add-car.component.css'
 })
 export class AddCarComponent implements OnInit {
 
-   carFrom: FormGroup = new FormGroup({
+    carFrom: FormGroup = new FormGroup({
         id: new FormControl(1, [Validators.required, Validators.min(1)]),
         mark: new FormControl('', Validators.required),
         color: new FormControl('', Validators.required),

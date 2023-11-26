@@ -13,19 +13,19 @@ import {EditCarComponent} from "./edit-car/edit-car.component";
 })
 export class CarComponent implements OnInit {
 
-  cars: Array<Car> | undefined =[]
+    cars: Array<Car> | undefined = []
 
-  constructor(private carControllerService: CarControllerService) {
-  }
+    constructor(private carControllerService: CarControllerService) {
+    }
 
-  ngOnInit(): void {
-    this.getAllCars();
-  }
+    ngOnInit(): void {
+        this.getAllCars();
+    }
 
-  public getAllCars(): void{
-    this.carControllerService.getAllCars()
-      .subscribe(response =>
-      this.cars = response.content)
-  }
+    public getAllCars(): void {
+        this.carControllerService.getAllCars()
+            .subscribe(response =>
+                this.cars = response.content)
+    }
 
 }

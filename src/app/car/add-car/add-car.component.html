@@ -2,47 +2,48 @@
 
 
 <div class="form-group">
-  <form [formGroup]="carFrom" (ngSubmit)="addCar()">
+    <form [formGroup]="carFrom" (ngSubmit)="addCar()">
 
-    <div class="form-group">
-      <label for="id">Id: </label>
-      <div class="input-group">
-        <input id="id" type="number" formControlName="id">
-      </div>
-      <div *ngIf="carFormControl['id'].invalid && (carFormControl['id'].dirty || carFormControl['id'].touched)">
-        <span class="text-danger" *ngIf="(carFormControl['id'].errors?.['required'] || carFormControl['id'].errors?.['min'])">
+        <div class="form-group">
+            <label for="id">Id: </label>
+            <div class="input-group">
+                <input id="id" type="number" formControlName="id">
+            </div>
+            <div *ngIf="carFormControl['id'].invalid && (carFormControl['id'].dirty || carFormControl['id'].touched)">
+        <span class="text-danger"
+              *ngIf="(carFormControl['id'].errors?.['required'] || carFormControl['id'].errors?.['min'])">
           Car id is required and cannot be 0
         </span>
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-      <label for="mark">Mark: </label>
-      <div class="input-group">
-        <input id="mark" type="text" formControlName="mark">
-      </div>
-      <div *ngIf="carFormControl['mark'].invalid && (carFormControl['mark'].dirty || carFormControl['mark'].touched)">
+        <div class="form-group">
+            <label for="mark">Mark: </label>
+            <div class="input-group">
+                <input id="mark" type="text" formControlName="mark">
+            </div>
+            <div *ngIf="carFormControl['mark'].invalid && (carFormControl['mark'].dirty || carFormControl['mark'].touched)">
         <span class="text-danger" *ngIf="(carFormControl['mark'].errors?.['required'])">
           Car mark is required
         </span>
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-      <label for="color">Color: </label>
-      <div class="input-group">
-        <input id="color" type="text" formControlName="color">
-      </div>
-      <div *ngIf="carFormControl['color'].invalid && (carFormControl['color'].dirty || carFormControl['color'].touched)">
+        <div class="form-group">
+            <label for="color">Color: </label>
+            <div class="input-group">
+                <input id="color" type="text" formControlName="color">
+            </div>
+            <div *ngIf="carFormControl['color'].invalid && (carFormControl['color'].dirty || carFormControl['color'].touched)">
         <span class="text-danger" *ngIf="(carFormControl['color'].errors?.['required'])">
           Car color is required
         </span>
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div>
-      <p>Complete the form to enable button.</p>
-          <button type="submit" [disabled]="!carFrom.valid">Add Car</button>
-    </div>
-  </form>
+        <div>
+            <p>Complete the form to enable button.</p>
+            <button type="submit" [disabled]="!carFrom.valid">Add Car</button>
+        </div>
+    </form>
 </div>

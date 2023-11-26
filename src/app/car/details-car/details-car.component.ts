@@ -7,25 +7,25 @@ import {Car} from "../../api/car/v1";
 @Component({
     selector: 'app-details-car',
     standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
     templateUrl: './details-car.component.html',
     styleUrl: './details-car.component.css'
 })
 export class DetailsCarComponent {
 
-  @Input() carDetails: Car = {};
+    @Input() carDetails: Car = {};
 
-  private modalService: NgbModal = new NgbModal();
+    private modalService: NgbModal = new NgbModal();
 
-  openDetails(contentDetails: TemplateRef<Car>) {
-    console.log("Car id: " + this.carDetails);
-    this.modalService.open(contentDetails, {
-      centered: true,
-      backdrop: 'static',
-      size: 'lg'
-    });
-    document.getElementById('carId')!.setAttribute('value', String(this.carDetails.id));
-    document.getElementById('carMark')!.setAttribute('value', String(this.carDetails.mark));
-    document.getElementById('carColor')!.setAttribute('value', String(this.carDetails.color));
-  }
+    openDetails(contentDetails: TemplateRef<Car>) {
+        console.log("Car id: " + this.carDetails);
+        this.modalService.open(contentDetails, {
+            centered: true,
+            backdrop: 'static',
+            size: 'lg'
+        });
+        document.getElementById('carId')!.setAttribute('value', String(this.carDetails.id));
+        document.getElementById('carMark')!.setAttribute('value', String(this.carDetails.mark));
+        document.getElementById('carColor')!.setAttribute('value', String(this.carDetails.color));
+    }
 }
