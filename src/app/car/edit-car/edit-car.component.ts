@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Car, CarControllerService} from "../../api/car/v1";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import * as jsonpatch from 'fast-json-patch';
+import {Observer} from 'fast-json-patch';
 
 @Component({
     selector: 'app-edit-car',
@@ -51,6 +53,25 @@ export class EditCarComponent implements OnInit {
 
     }
 
+    editCarById(): void {
+        const car: Car = this.carEdit;
+        let observer: Observer<Car> = jsonpatch.observe(car);
+        car.mark = this.editForm.get('mark')?.value!;
+        car.color = this.editForm.get('color')?.value!;
+        let modCar = jsonpatch.generate(observer);
+        console.log(modCar);
+
+        let carId: number = Number(this.editForm.get('id')?.value!);
+        this.carControllerService.modCarById(carId, modCar).subscribe((result) => {
+            this.ngOnInit();
+        })
+
+        this.editForm.reset();
+        console.log(carId);
+
+        this.modalService.dismissAll();
+    }
+
     openEdit(contentEditCar: TemplateRef<Car>) {
         console.log("Car id: ", this.carEdit.id);
         this.modalService.open(contentEditCar, {
@@ -65,7 +86,9 @@ export class EditCarComponent implements OnInit {
         });
 
         this.editForm.patchValue({
-            id: String(this.carEdit.id)
+            id: String(this.carEdit.id),
+            mark: this.carEdit.mark,
+            color: this.carEdit.color
         });
     }
 }

@@ -42,8 +42,11 @@
             <div>
                 <p>Complete the form to enable button.</p>
                 <div class="border text-center">
-                    <button id="save-btn" data-dismiss="modal" class="btn btn-info" type="submit"
-                            [disabled]="!editForm.valid">Save Changes
+                    <button id="save-btn" data-dismiss="modal" class="btn btn-info m-1" type="submit"
+                            [disabled]="!editForm.valid">Save Car
+                    </button>
+                    <button id="mod-btn" data-dismiss="modal" class="btn btn-info m-1" (click)=(editCarById())
+                            [disabled]="!editForm.valid">Save Car Field Changes
                     </button>
                 </div>
             </div>
