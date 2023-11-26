@@ -18,7 +18,10 @@
       <td class="col-sm-1"><span>{{car.id}}</span></td>
       <td class="col-sm-3"><span>{{car.mark}}</span></td>
       <td class="col-sm-3"><span>{{car.color}}</span></td>
-      <app-details-car [car] = "car"></app-details-car>
+      <td class="col-sm-3">
+      <app-details-car [carDetails] = "car"></app-details-car>
+        <app-edit-car [carEdit] = "car"></app-edit-car>
+      </td>
     </tr>
     </tbody>
   </table>

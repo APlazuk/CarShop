@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {Car, CarControllerService} from "../../api/car/v1";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-add-car',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-car.component.html',
   styleUrl: './add-car.component.css'
 })

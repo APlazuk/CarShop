@@ -10,21 +10,21 @@
             <div class="form-group">
                 <label for="carId">Id: </label>
                 <div class="input-group">
-                    <input id="carId" class="form-control" [attr.disabled]="car.id">
+                    <input id="carId" class="form-control" [attr.disabled]="carDetails.id">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="carMark">Mark: </label>
                 <div class="input-group">
-                    <input id="carMark" class="form-control" [attr.disabled]="car.mark">
+                    <input id="carMark" class="form-control" [attr.disabled]="carDetails.mark">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="carColor">Color: </label>
                 <div class="input-group">
-                    <input id="carColor" class="form-control" [attr.disabled]="car.color">
+                    <input id="carColor" class="form-control" [attr.disabled]="carDetails.color">
                 </div>
             </div>
         </form>
@@ -35,14 +35,6 @@
 </ng-template>
 
 
-<td class="col-sm-3">
     <button class="btn btn-sm btn-info m-1" (click)="openDetails(contentDetails)">
         <i class="fa fa-search"></i>Details
     </button>
-    <button class="btn btn-sm btn-warning m-1">
-        <i class="fa fa-edit"></i>Edit
-    </button>
-    <button class="btn btn-sm btn-danger m-1">
-        <i class="fa fa-remove"></i>Delete
-    </button>
-</td>

@@ -1,0 +1,64 @@
+
+<ng-template #contentEditCar let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Edit Car</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editForm" (ngSubmit)="editCar()">
+
+            <div class="form-group">
+                <label for="id">Id: </label>
+                <div class="input-group" >
+                    <input id="id"  formControlName="id">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mark">Mark: </label>
+                <div class="input-group">
+                    <input id="mark" type="text" formControlName="mark">
+                </div>
+                <div *ngIf="editFormControl['mark'].invalid && (editFormControl['mark'].dirty || editFormControl['mark'].touched)">
+        <span class="text-danger" *ngIf="(editFormControl['mark'].errors?.['required'])">
+          Car mark is required
+        </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color: </label>
+                <div class="input-group">
+                    <input id="color" type="text" formControlName="color">
+                </div>
+                <div *ngIf="editFormControl['color'].invalid && (editFormControl['color'].dirty || editFormControl['color'].touched)">
+        <span class="text-danger" *ngIf="(editFormControl['color'].errors?.['required'])">
+          Car color is required
+        </span>
+                </div>
+            </div>
+
+            <div>
+                <p>Complete the form to enable button.</p>
+                <div class="border text-center"> <button id="save-btn" data-dismiss="modal" class="btn btn-info" type="submit"  [disabled]="!editForm.valid">Save Changes</button> </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Cancel</button>
+    </div>
+</ng-template>
+
+
+<button class="btn btn-sm btn-warning m-1" (click)="openEdit(contentEditCar)">
+    <i class="fa fa-edit"></i>Edit
+</button>
+
+<button class="btn btn-sm btn-danger m-1">
+    <i class="fa fa-remove"></i>Delete
+</button>
+
+
