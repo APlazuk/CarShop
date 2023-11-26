@@ -1,0 +1,22 @@
+<ng-template #contentDeleteCar let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Confirm Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h2>Are you sure you want to delete this car.</h2>
+        <div class="border text-center">
+            <button id="delete-btn" data-dismiss="modal" class="btn btn-danger" (click)="deleteCarById()">Yes, Delete!
+            </button>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+</ng-template>
+
+<button class="btn btn-sm btn-danger m-1" (click)="openDelete(contentDeleteCar)">
+    <i class="fa fa-remove"></i>Delete
+</button>

@@ -3,11 +3,12 @@ import {CommonModule} from '@angular/common';
 import {Car, CarControllerService} from "../api/car/v1";
 import {DetailsCarComponent} from "./details-car/details-car.component";
 import {EditCarComponent} from "./edit-car/edit-car.component";
+import {DeleteCarComponent} from "./delete-car/delete-car.component";
 
 @Component({
     selector: 'app-car',
     standalone: true,
-    imports: [CommonModule, DetailsCarComponent, EditCarComponent],
+    imports: [CommonModule, DetailsCarComponent, EditCarComponent, DeleteCarComponent],
     templateUrl: './car.component.html',
     styleUrl: './car.component.css'
 })
